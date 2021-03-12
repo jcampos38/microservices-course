@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jcampos.training.microservices.shoppingservice.model.Customer;
 
-@FeignClient(name = "customer-service")
-@RequestMapping("/customers")
+@FeignClient(name = "customer-service", fallback = CustomerFallbackFactory.class)
+//@RequestMapping("/customers")
 public interface CustomerClient {
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/customers/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id);
 
 }
