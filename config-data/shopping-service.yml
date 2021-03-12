@@ -43,7 +43,7 @@ eureka:
 
 Feign:
   hystrix:
-    enabled:
+    enabled: true
 management:
   endpoints:
     web:
