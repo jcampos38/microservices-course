@@ -1,6 +1,8 @@
 package jcampos.training.microservices.shoppingservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jcampos.training.microservices.shoppingservice.model.Customer;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -41,6 +43,9 @@ public class Invoice {
     private List<InvoiceItem> items;
 
     private String state;
+    
+    @Transient
+    private Customer customer;
 
     public Invoice(){
         items = new ArrayList<>();
